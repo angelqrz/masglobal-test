@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MASGLOBAL - Employees</title>
+    <link href="assets/css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="header">
+        <div class="header-title">
+            MASGLOBAL
+        </div>
+        <div class="header-menu">
+            <a class="header-link" href="index.html">Employees</a>
+        </div>
+    </div>
+    <div id="body-container">
+        <div id="content">
+            <div class="content-title">
+                Employees
+            </div>
+            <div class="form">
+                <input type="text" id="employeeId" placeholder="Employee Id">
+                <input type="button" id="getEmployee" value="Get employee" />
+            </div>
+            <div class="messages">
+                <span class="response-message"></span>
+            </div>
+            <div class="employees-list" style="display:none">
+                <table id="employee-table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Contract Type Name</th>
+                            <th>Role Id</th>
+                            <th>Role Name</th>
+                            <th>Role Description</th>
+                            <th>Hourly Salary</th>
+                            <th>Monthly Salary</th>
+                            <th>Annual Salary</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/jquery.js"></script>
+
+    <script>
+        $(function () {
+            $('#getEmployee').click(function () {
+                $('.response-message').text("");
+                $('.employees-list').hide();
+                $('#employee-table tbody tr').remove();
+                var employeeId = $('#employeeId').val().trim();
+                $.getJSON("http://localhost:8080/api/v1/employees/" + employeeId)
+                    .done(function (data) {
+                        if (Array.isArray(data)) {
+                            $.each(data, function () {
+                                $('#employee-table > tbody:last-child').append('<tr><td>' + this.id + '</td><td>' + this.name + '</td><td>' + this.contractTypeName + '</td><td>' + this.roleId + '</td><td>' + this.roleName + '</td><td>' + this.roleDescription + '</td><td>' + this.hourlySalary + '</td><td>' + this.monthlySalary + '</td><td>' + this.annualSalary + '</td></tr>');
+                            });
+                        } else {
+                            $('#employee-table > tbody:last-child').append('<tr><td>' + data.id + '</td><td>' + data.name + '</td><td>' + data.contractTypeName + '</td><td>' + data.roleId + '</td><td>' + data.roleName + '</td><td>' + data.roleDescription + '</td><td>' + data.hourlySalary + '</td><td>' + data.monthlySalary + '</td><td>' + data.annualSalary + '</td></tr>');
+                        }
+                        $('.employees-list').show();
+                    })
+                    .fail(function (data) {
+                        $('.response-message').text("An error occurred when trying to get employees. " + data.responseJSON.message);
+                    });
+            });
+        });
+    </script>
+</body>
+
+</html>

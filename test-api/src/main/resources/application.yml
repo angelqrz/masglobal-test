@@ -1,0 +1,11 @@
+server:
+  servlet:
+    context-path: /api/v1
+  port: 8080
+
+masglobal:
+  test:
+    clients:
+      employees:
+        url: http://masglobaltestapi.azurewebsites.net/api/employees/
+        timeout: 60

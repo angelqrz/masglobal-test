@@ -1,0 +1,109 @@
+@font-face {
+    font-family: futura-pt;
+    src: url(fonts/FuturaPTLight.otf);
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: futura-pt, "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+div{
+    display: inline-block;
+}
+
+#header{
+    background: white;
+    width: 100%;
+    height: 100px;
+    color: gray;
+    padding-top:15px;
+}
+
+.header-title{
+    font-size: 50px;
+    margin-left: 20px;
+    float: left;
+    font-weight: bold;
+}
+
+.header-menu{
+    float: right;
+    font-weight: lighter;
+    padding-top: 20px;
+    font-size: 18px;
+}
+
+.header-menu a{
+    margin: 0 20px;
+    text-decoration: none;
+    color: lightslategray;
+}
+
+.header-menu a:hover{
+    color: #00C3AD;
+}
+
+.header-menu a:visited{
+    color: #00535E;
+}
+
+#body-container{
+    width: 100%;
+    text-align: center;
+}
+
+#content{
+    position: relative;
+    width: 600px;
+    margin: 0 auto;
+    float: none;
+}
+
+.content-title{
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 20px;
+    width: 100%;
+    color: #00535E;
+}
+
+.form{
+    width: 300px;
+    margin-top: 20px;
+}
+
+.form input{
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.form input[type=button] {
+    width: 50%;
+    margin-top: 10px;
+    background-color: #00535E;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+th, td {
+    border: 1px solid gray;
+}
+th{
+    font-weight: bold;
+    font-size: 18px;
+    color: #00535E; 
+}
+
+.messages{
+    width: 100%;
+    margin-top: 10px;
+}
