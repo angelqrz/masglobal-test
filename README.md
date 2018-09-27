@@ -1,4 +1,4 @@
-# MASBLOBAL Java Test
+# MASGLOBAL Java Test
 
 This repository contains the solution for the Java backend test from MASGLOBAL.
 
